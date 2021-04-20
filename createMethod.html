@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "zh-CN">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1">
+        <title>create方法</title>
+        <script scr = "domReady.js"></script>
+        <script>
+            myReady(function(){
+                var ul = document.getElementById("myList");
+                var li = document.createElement("li");
+                var text = document.createTextNode("Item");
+                li.appendChild(txt);    //将txt节点装填到li里
+                ul.appendChild(li);     //创建好的li装填到ul里
+
+            });
+            </script>
+    </head>
+    <body>
+        <ul id = "myList">
+        </ul>
+    </body>
+</html>
