@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "zh-CN">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1">
+        <title>create方法</title>
+        <script scr = "domReady.js"></script>
+        <script>
+            myReady(function(){
+                var s = "";
+                function travel(space, node){
+                    if(node.tagName){       //如果当前节点是标签, 不是空的, 就拼接字符串
+                        s += space + node.tagName + "<br/>";
+                    }
+                    var len = node.childNodes.length;       //保存当前节点的子节点的个数
+                    for(var i = 0; i < len; i++){       //遍历节点的子节点
+                        travel(space + "|-", node.childNode[i]);
+                    }
+                }
+                travel("", document);
+                document.write(s);
+            });
+            </script>
+    </head>
+    <body>
+        <form>
+            <input type = "button" id = "button1" name = "button1" value = "Click Me!"/>
+        </form>
+       
+    </body>
+</html>
