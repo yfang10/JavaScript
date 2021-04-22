@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "zh-CN">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1">
+        <title>getElementsByClassName()兼容游览器方案</title>
+        <script scr = "domReady.js"></script>
+        <script scr = "getElementsByClassName.js"></script>
+        <script>
+            myReady(function(){
+                var myUl2 = document.getElementById("myUl2");
+                var r = getElementsByClassName({
+                    searchClass: "light dark",
+                    node: myUl2
+                });
+                console.log(r);
+            });
+            </script>
+    </head>
+    <body>
+        <ul id = "myUl">
+            <li class = "light">1</li>
+            <li class = "light dark">2</li>
+            <li class = "light">3</li>
+        </ul>
+
+        <ul id = "myUl2">
+            <li class = "light">1</li>
+            <li class = "light dark">second</li>
+            <li class = "light">3</li>
+        </ul>
+       
+    </body>
+</html>
