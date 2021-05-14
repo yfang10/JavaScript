@@ -26,18 +26,31 @@
        var btn = document.getElementById("btn");
        btn.onclick = Domo;
 
-       var btn2 = document.getElementById("btn2");
-       btn.addEventListener('click', function(){
+       var Dom2 = function(){
            alert("DOM 2级事件绑定方式")
-       }, false);
+       }
+
+
+       var btn2 = document.getElementById("btn2");
+       btn.addEventListener('click', Dom2, false);
+
+    //    var btn2 = document.getElementById("btn2");
+    //    btn.addEventListener('click', function(){
+    //        alert("DOM_1 2级事件绑定方式")
+    //    }, false);
 
        /*
        1. 在html中定义, html中写js代码, 强耦合, 不利于复用代码
        2. DOM 0级事件, 事件对象的属性添加绑定事件 松耦合, html与js代码分离, 有且只能绑定一个事件类型
        3. DOM 2级事件, 通过addEventListener函数绑定事件, 松耦合, 绑定多个事件, 事件捕获和事件冒泡
+       */
+
+       //事件解绑
+       btn2.removeEventListener('click', Dom2);
+
+       //事件解绑成功的主要原因就是保持add和remove里面的函数参数相同
+       
         </script>
-          
-      
     </body>
 
 </html>
