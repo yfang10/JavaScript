@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>事件定义</title>
+    </head>
+
+    <body>
+        <button onclick = "alertWindow()">点击我</button> 
+        <button id = "btn">DOM 0级事件绑定方式</button>
+        <button id = "btn2">DOM 2级事件绑定方式</button>
+        <script type = "text/javascript">
+        /* 
+        1. 事件对象 button
+        2. 事件对象绑定一个事件类型
+        3. 事件句柄
+        */
+       function alertWindow(){
+           alert("我被点击了")
+       }
+
+       var Domo = function(){
+           alert("DOM 0级事件绑定方式")
+       }
+
+       var btn = document.getElementById("btn");
+       btn.onclick = Domo;
+
+       var btn2 = document.getElementById("btn2");
+       btn.addEventListener('click', function(){
+           alert("DOM 2级事件绑定方式")
+       }, false);
+        </script>
+          
+      
+    </body>
+
+</html>
