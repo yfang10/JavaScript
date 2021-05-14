@@ -2,10 +2,17 @@
 <html lang = "en">
     <head>
     <meta charset = "UTF-8">
-    <title>Document</title>
+    <title>初识事件</title>
     </head>
 
     <body>
+        <button id = "btn">点击我</button>
+        <script type = "text/javascript">
+        var btn = document.getElementById("btn");
+        btn.addEventListener('click', function(){
+            alert("我已经被点击");
+        });
+        </script>
       
     </body>
 
