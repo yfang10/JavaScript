@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>IE事件处理程序</title>
+    </head>
+
+    <body>
+        <button></button>
+        <script type = "text/javascript">
+        //html属性添加事件
+        //DOM 0级事件绑定  兼容所有游览器
+        //DOM 2级事件绑定 addEventListener: chrome firefox IE9等
+        //attachEvent: IE8及IE8以下游览器
+
+        var btn = document.getElementById("btn");
+        btn.attachEvent("onclick", function(){
+            alert("Clicked");
+        })
+        </script>
+    </body>
+
+</html>
