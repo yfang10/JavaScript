@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>事件冒泡和事件捕获</title>
+    </head>
+
+    <body>
+      <div id = "parent">
+          <div id = "child" class = "child">点击儿子</div>
+      </div>
+      <script type = "text/javascript">
+      //事件冒泡
+      document.getElementById("parent").addEventListener("click", function(e){
+          alert("parent事件被触发, " + this.id);
+      })
+      document.getElementById("child").addEventListener("click", function(e){
+          alert("child事件被触发, " + this.id);
+      })
+
+      //父添加了事件
+      //子触发了事件
+    </script>
+        
+    </body>
+
+</html>
