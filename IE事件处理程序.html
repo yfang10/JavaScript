@@ -14,9 +14,22 @@
         //attachEvent: IE8及IE8以下游览器
 
         var btn = document.getElementById("btn");
-        btn.attachEvent("onclick", function(){
+
+        var clickme = function(){
             alert("Clicked");
-        })
+        }
+        btn.attachEvent("onclick", clickme);
+
+        // btn.attachEvent("onclick", function(){
+        //     alert("2Clicked");
+        // });
+
+        btn.detachEvent("onclick", clickme);
+
+        //this指向window
+        btn.attachEvent("onclick", function(){
+            alert(this == window);
+        });
         </script>
     </body>
 
