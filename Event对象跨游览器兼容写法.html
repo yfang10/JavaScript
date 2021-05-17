@@ -11,8 +11,8 @@
 
         <a id = "a" href = "http://www.baidu.com">跳转链接</a>
         <script type = "text/javascript">
-        //Event addEventListener chrome firefox IE9
-        //Event attachEvent  IE8系列
+        //Event addEventListener chrome firefox IE9  event.target  preventDefault  stopPropagation
+        //Event attachEvent  IE8系列  event.srcElement  returnValue  cancelBubble
 
         var EventUtil = {
             addHandler: function(element, type, handler){
