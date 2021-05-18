@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>事件类型3</title>
+    <style type = "text/css">
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    #canvas {
+        height: 500px;
+    }
+
+    li {
+        float: left;
+        weight: 100px;
+        height: 30px;
+        border-radius: 10px;
+        background: #333;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+    }
+
+    ul li:nth-child(1){
+        background: red;
+    }
+
+    ul li:nth-child(2){
+        background: yellow;
+    }
+
+    ul li:nth-child(3){
+        background: blue;
+    }
+
+    ul li:nth-child(4){
+        background: green;
+    }
+
+    ul li:nth-child(5){
+        background: gray;
+    }
+    </style>
+    </head>
+    <body> 
+        <div id = "canvas"></div>
+        <ul id = "ul">
+            <li>红色</li>
+            <li>黄色</li>
+            <li>蓝色</li>
+            <li>绿色</li>
+            <li>灰色</li>
+        </ul>
+        <script type = "text/javascript">
+        var ul = document.getElementById("ul")
+        var canvas = document.getElementById("canvas")
+        ul.addEventListener("click", function(e){
+            var that = e.target;
+            console.log(e);
+            if(that.innerHTML == "红色"){
+                canvas.style.background = "red";
+            }else if (that.innerHTML == "黄色"){
+                canvas.style.background = "yellow";
+            }else if(that.innerHTML == "蓝色"){
+                canvas.style.background = "blue";
+            }else if(that.innerHTML == "绿色"){
+                canvas.style.background = "green";
+            }else{
+                canvas.style.background = "gray";
+            }
+
+        });
+        </script>
+    </body>
+
+</html>
