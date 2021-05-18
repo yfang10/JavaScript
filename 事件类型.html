@@ -3,9 +3,35 @@
     <head>
     <meta charset = "UTF-8">
     <title>事件类型</title>
+    <style type = "text/css">
+        body {
+            height: 1000px;
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+        }
+
+        div {
+            padding: 20px 0;
+            background: gray;
+        }
+
+        #myDiv {
+            width: 500px;
+            height: 500px;
+            background: lightgreen;
+        }
+        </style>
     </head>
     <body>
-    
+        <input id = "input" type = "text" name = ""/>
+
+        <div id = "div">
+            <button id = "mybtn">点击我</button>
+        </div>
+        <div id = "myDiv"></div>
         <script type = "text/javascript">
         var EventUtil = {
             addHandler: function(element, type, handler){
@@ -60,17 +86,164 @@
 //UI事件
 //当页面完全加载后在window上面触发
 
-EventUtil.addHandler(window, "load", function(e){
-    alert("Loaded!");
+// EventUtil.addHandler(window, "load", function(e){
+//     alert("Loaded!");
+// });
+
+// var image = document.createElement("img");
+// EventUtil.addHandler(image, "load", function(e){
+//     alert("图片加载完毕");
+// })
+// image.src = "1.png";
+
+// //图片预加载
+// var image = new Image();
+// EventUtil.addHandler(image, "load", function(event){
+//     alert("Image Loaded!");
+// });
+// image.src = "smile.gif";
+
+
+//js动态加载完毕
+// var script = document.createElement("script");
+// EventUtil.addHandler(script, "load", function(event){
+//     alert("js Loaded");
+// });
+
+// script.src = "example.js";
+// document.body.appendChild(script);
+
+
+//CSS动态加载完毕
+// var link = document.createElement("link");
+// link.type = "text/css";
+// link.rel = "stylesheet";
+// EventUtil.addHandler(link, "load", function(event){
+//     alert("css Loaded");
+// });
+
+// link.href = "example.css";
+// document.getElementsByTagName("head")[0].appendChild(link);
+
+//用户从一个页面切换到另一个页面
+//EventUtil.addHandler(window, "unload", function(event){
+//     alert("Unload");
+// });
+
+//窗口大小发生变化时触发
+// EventUtil.addHandler(window, "resize", function(event){
+//     alert("Resized");
+// })
+
+// EventUtil.addHandler(window, "scroll", function(event){
+//     alert(111)
+// });
+
+//焦点事件
+//1. blur
+var input = document.getElementById("input");
+// EventUtil.addHandler(input, "blur", function(event){
+//     alert("元素失去焦点的时候触发");
+// });
+
+//2. focus 不支持冒泡
+// EventUtil.addHandler(input, "focus", function(event){
+//     console.log("元素获取焦点的时候触发");
+// });
+
+
+//同focus一样
+// EventUtil.addHandler(input, "focusin", function(event){
+//     console.log("元素获取焦点的时候触发，支持事件游览器是IE5.5+, Safari5.1+, chrome等");
+// });
+
+//4. focusout 同blur
+EventUtil.addHandler(input, "focusout", function(event){
+    console.log("元素失去焦点的时候触发，支持事件游览器是IE5.5+, Safari5.1+, chrome等");
 });
 
-var image = document.createElement("img");
-EventUtil.addHandler(image, "load", function(e){
-    e = EventUtil.getEvent(e);
-    alert(EventUtil.getTarget(e),src);
+
+// EventUtil.addHandler(input, "DOMFocusIn", function(event){
+//     alert("元素获取焦点的时候触发");
+// });
+
+// EventUtil.addHandler(input, "DOMFocusOut", function(event){
+//     alert("元素失去焦点的时候触发");
+// })
+
+//鼠标事件
+// EventUtil.addHandler(mybtn, "click", function(event){ 
+// })
+
+//双击事件
+EventUtil.addHandler(mybtn, "dbclick", function(event){
+    console.log(111111)
 })
 
-    </script>   
+
+var div = document.getElementById("div");
+//鼠标按下时候触发的事件
+EventUtil.addHandler(mybtn, "mousedown", function(event){
+    console.log("mousedown")
+})
+
+EventUtil.addHandler(mybtn, "mouseup", function(event){
+    console.log("mouseup")
+})
+
+//mousedown + mouseup = click
+EventUtil.addHandler(mybtn, "mousemove", function(event){
+    console.log("mousemove");
+})
+
+//离开目标元素或者其子元素时候执行
+EventUtil.addHandler(mybtn, "mouseout", function(event){
+    console.log("mouseout");
+})
+
+//进入目标元素或者其子元素时候执行
+EventUtil.addHandler(mybtn, "mouseover", function(event){
+    console.log("mouseover");
+})
+
+//只能进入目标元素时候才会触发
+// EventUtil.addHandler(mybtn, "mouseenter", function(event){
+//     console.log("mouseenter");
+// });
+
+// //只能离开目标元素时候才会触发
+// EventUtil.addHandler(mybtn, "mouseleave", function(event){
+//     alert("只有在鼠标指针穿过被选元素时, 才会触发mouseleave事件.")
+// })
+
+
+var div = document.getElementById('myDiv');
+EventUtil.addHandler(div, "click", function(event){
+    var keys = new Array();
+    
+    if(event.shiftKey){
+        keys.push("shift");
+    }
+
+    if(event.ctrlKey){
+        keys.push("ctrl");
+    }
+
+    if(event.altKey){
+        keys.push("alt");
+    }
+
+    if(event.metaKey){
+        keys.push("meta");
+    }
+
+    alert("Keys: " + keys.join(","));
+});
+
+
+
+   </script>   
+   
     </body>
 
 </html>
