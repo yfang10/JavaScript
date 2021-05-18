@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>事件类型3</title>
+    </head>
+    <body>
+        <button id = "mybtn">点击我</button>
+        <script type = "text/javascript">
+            //touch
+
+            var EventUtil = {
+            addHandler: function(element, type, handler){
+                //绑定事件
+                //chrome firefox IE9等   addEventListener
+                //IE8及IE8以下的游览器  attachEvent
+                if(element.addEventListener){
+                    element.addEventListener(type, handler, false);
+            }else if(element.attachEvent){
+                element.attachEvent("on" + type, handler);
+            }else{
+                element["on" + type] = null
+            }
+        }, 
+
+        getCharCode: function(event){
+            if(typeof event.charCode == "number"){
+                return event.charCode;
+            }else{
+                return event.keyCode;
+            }
+        },
+
+        removeHandler: function(element, type, handler){
+            //移除事件
+            //chrome firefox IE9等  removeEventListener
+            //IE8及IE8以下的游览器   detachEvent
+            if(element.removeEventListener){
+                element.removeEventListener(type, handler, false);
+            }else if(element.detachEvent){
+                element.detachEvent("on" + type, handler);
+            }else{
+                element["on" + type] = null;
+            }
+        
+    }, 
+    
+    getTarget:function(event){
+        return event.target || event.srcElement;
+
+    }, 
+    preventDefault: function(event){
+        if(event.preventDefault){
+            event.preventDefault();
+        }else{
+            event.returnVable = false;
+        }
+    },
+
+    stopPropagation: function(event){
+        if(event.stopPropagation){
+            event.stopPropagation();
+        }else{
+            event.cancelBubble = true;
+        }
+    }
+}
+
+            var mybtn = document.getElementById("mybtn");
+            //手指触摸屏幕时触发
+            EventUtil.addHandler(mybtn, "touchstart", function(event){
+                console.log("当前触摸屏幕的触摸点数组: " + event.touches);
+                console.log("数组中只包含引起事件的触摸点信息: " + event.changedTouches);
+                console.log("只包含放在元素上的触摸信息: " + event.targetTouches);
+            });
+
+            //手指在屏幕上滑动时触发
+            // EventUtil.addHandler(mybtn, "touchmove", function(event){
+            //     console.log(111111)
+            // });
+
+            //手指从屏幕上移开时触发
+            // EventUtil.addHandler(mybtn, "touchend", function(event){
+            //     console.log(111111)
+            // });
+
+            //touchcancel 当系统停止跟踪触摸时触发
+        
+   </script>   
+   
+    </body>
+
+</html>
