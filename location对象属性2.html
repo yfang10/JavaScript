@@ -2,21 +2,28 @@
 <html lang = "en">
     <head>
     <meta charset = "UTF-8">
-    <title>location对象属性2</title>
+    <title>history对象方法</title>
     </head>
     <body>
-        <input type = "button" value = "刷新" id = "reload">
+        <div class = "box">
+            请输入搜索关键字:
+            <input type = "text" placeholder = "请输入搜索关键字" id = "key">
+            <input type = "button" value = "搜索" id = "search">
+        </div>
+        <a href = "#" id = "go">跳转</a>
         
         <script>
-        //    setTimeout(function(){
-               //location.href = "location对象属性.html";
-               //window.location = "location对象属性.html";
-        //           location.replace("location对象属性.html")
-        //    }, 1000)
+            //给按钮绑定事件
+            document.getElementById("search").onclick = function(){
+                //获取搜索关键字并对它进行编码
+                var key = encodeURIComponent(document.getElementById("key").value);
+                //跳转到指定页面
+                location.href = 'index9.html?search_key = ' + key;
+            }
 
-           document.getElementById("reload").onclick = function(){
-               location.reload(true);
-           }
+            var sea = "搜索";
+            document.getElementById("go").href = 'index.html?key = ' + encou8deURI(sea);
+        
         </script>
     </body>
 </html>
