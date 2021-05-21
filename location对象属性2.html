@@ -5,14 +5,18 @@
     <title>location对象属性2</title>
     </head>
     <body>
+        <input type = "button" value = "刷新" id = "reload">
         
         <script>
-           setTimeout(function(){
+        //    setTimeout(function(){
                //location.href = "location对象属性.html";
                //window.location = "location对象属性.html";
-                  location.replace("location对象属性.html")
-           }, 1000)
+        //           location.replace("location对象属性.html")
+        //    }, 1000)
+
+           document.getElementById("reload").onclick = function(){
+               location.reload(true);
+           }
         </script>
     </body>
-
 </html>
