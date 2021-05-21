@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+    <meta charset = "UTF-8">
+    <title>Navigator对象及属性</title>
+    </head>
+    <body>
+       
+        <script>
+          //检测游览器类型
+          function getBrowser(){
+              //获取userAgent属性
+              var explorer = navigator.userAgent.toLowerCase(), browser;
+              if(explorer.indexOf("msie") > -1){
+                  brower = "IE";
+              }else if(explorer.indexOf("chrome") > -1){
+                  browser = "Chrome";
+              }else if(explorer.indexOf("opera") > -1){
+                  browser = "Opera";
+              }else if(explorer.indexOf("safari") > -1){
+                browser = "safari";
+              }
+              return browser;
+          }
+
+          var explorer = getBrowser();
+          alert("您当前使用的是：" + explorer + "游览器");
+          
+        </script>
+    
+    </body>
+</html>
