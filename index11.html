@@ -7,13 +7,22 @@
     <body>
         <p>这是index11.html</p>
         <p><input type = "button" value = "后退" id = "btn"></p>
+        <input type = "button" value = "前进" id = "mybtn"></p>
+
         <script>
             var btn = document.getElementById("btn");
+            var mybtn = document.getElementById("mybtn");
 
             //点击btn按钮时回到历史记录的上一步
             btn.onclick = function(){
-                history.back();
+                // history.back();
                 history.go(-1);
+            }
+
+            //点击mybtn按钮时回到历史记录的下一步
+            mybtn.onclick = function(){
+                history.forward();
+                history.go(1);
             }
         </script>
     
